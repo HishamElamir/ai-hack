@@ -5,6 +5,10 @@
 
 ---
 
+## 👌 Demo
+
+Demo URL: http://209.38.170.175:3000/
+
 ## 🎯 Project Overview
 
 This is a comprehensive HR self-service platform that automates the new hire onboarding process using AI. The system features:
