@@ -15,7 +15,8 @@ Desktop.ini
 
 # Env files
 .env
-.env.*
+.env.local
+.env.*.local
 !.env.example
 
 # Python

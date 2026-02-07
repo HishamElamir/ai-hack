@@ -36,6 +36,7 @@ services:
     environment:
       DATABASE_URL: postgresql://postgres:postgres@db:5432/hr_platform
       REDIS_URL: redis://redis:6379/0
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000,http://127.0.0.1:3000}
     depends_on:
       db:
         condition: service_healthy
@@ -52,7 +53,7 @@ services:
     ports:
       - "3000:3000"
     environment:
-      NEXT_PUBLIC_API_URL: http://localhost:8000/api/v1
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL:-http://localhost:8000/api/v1}
       ELEVENLABS_API_KEY: ${ELEVENLABS_API_KEY}
       ELEVENLABS_AGENT_ID: ${ELEVENLABS_AGENT_ID}
       NEXT_PUBLIC_ELEVENLABS_AGENT_ID: ${ELEVENLABS_AGENT_ID}

@@ -18,8 +18,13 @@ class Settings(BaseSettings):
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 60
     REFRESH_TOKEN_EXPIRE_DAYS: int = 7
 
-    # CORS
-    CORS_ORIGINS: list[str] = ["http://localhost:3000", "http://127.0.0.1:3000"]
+    # CORS - Can be overridden with CORS_ORIGINS env var (comma-separated)
+    CORS_ORIGINS: str = "http://localhost:3000,http://127.0.0.1:3000"
+    
+    @property
+    def cors_origins_list(self) -> list[str]:
+        """Parse CORS_ORIGINS string into list"""
+        return [origin.strip() for origin in self.CORS_ORIGINS.split(",")]
 
     # OpenAI
     OPENAI_API_KEY: Optional[str] = None
